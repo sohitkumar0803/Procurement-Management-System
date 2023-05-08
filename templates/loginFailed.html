@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+<style>
+	.tab {
+		border-radius: 0px;
+		border: 1px black solid;
+
+		background-color: white;
+		margin-left: 25%;
+		width: 450px;
+		color: #252A34;
+		font-weight: bold;
+		font-style: normal;
+		text-align: center;
+		font-size: 20px;
+		margin-bottom: 10px;
+		padding: 20px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+<div class="col-md-8">
+	<h4
+		style="background-color:#00ADB5; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+		&nbsp; <span id="pagetitle">Account Login</span></h4>
+	<br><br>
+	<h4 style="margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">Please Login First to Proceed!</h4>
+		
+
+	<div class="loginFrm">
+		<div class="wrapper">
+			<form action="/loginFailed" method="post" class="form">
+				<h1 class="title">User Login</h1>
+
+
+				<div class="inputContainer">
+					<input type="text" class="input" placeholder="a" name="username" required="required">
+					<label for="" class="label">Username</label>
+				</div>
+
+				<div class="inputContainer">
+					<input type="password" class="input" placeholder="a" name="password" required="required">
+					<label for="" class="label">Password</label>
+				</div>
+
+				<input type="submit" class="submitBtn" value="Login as Vendor">
+				<input type="submit" class="submitBtn" value="Login as Admin">
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+
+<!-- <div class="marquee" style="border:2px #00ADB5 hidden; background-color:white">
+	<h4
+		style="background-color:#00ADB5; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+		&nbsp; <span id="pagetitle">Account Login</span></h4>pagetitle id is given here
+	<div class="marquee-content"
+		style="text-align:center; padding-top:100px;min-height:750px;background-color:#F0F0F0">
+
+
+		<table class="tab hd " style="color:#252A34;margin-bottom:50px;background-color:white;padding:15px; ">
+			<tr>
+				<td id="show">Please Login First to Proceed!</td>
+			</tr>
+		</table> -->
+
+
+
+<!-- <table class="tab hd brown">
+	<tr>
+		<td style="color:brown"></td>
+	</tr>
+</table> -->
+
+<!-- <table class="tab hd blue" table-border="0px" cellpadding="10" cellspacing="10">
+
+			<tr>
+				<td>
+					<form action="/loginFailed" method="post">
+						<br>
+						Username: <input type="text" name="username" required="required"
+							style="color:black;font-size:19px;"><br /><br />
+						Password: <input type="password" name="password" required="required"
+							style="color:black;font-size:19px;"><br /><br />
+						<button type="submit">Login As Admin</button> &nbsp; &nbsp; &nbsp; &nbsp;
+						<button type="submit">Login As Vendor</button><br /><br />
+					</form>
+				</td>
+
+			</tr>
+		</table>
+	</div>
+</div> -->

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	/* th,tr{
+    	height:50px;
+    	border:2px black solid;
+    	
+    }
+   
+    td{
+    	min-width:145px;
+    	border: 2px dashed black;
+    }
+    table{
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: #F0F0F0;
+		margin:20px;
+		color:blue;
+		font-style:normal;
+		font-size: 15px;
+		padding:20px;
+		cellpadding:10;
+		cellspacing:10;
+		margin-left : 0px;
+    }
+     */
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+	<table class="table table-hover table-bordered bg-info">
+		<tr style="color: white; font-size: 16px; font-weight: bold; background-color: #00ADB5">
+			<td>Application Id</td>
+			<td>Tender Id</td>
+			<td>Bid Amount</td>
+			<td>Deadline</td>
+			<td>Status</td>
+		</tr>
+		<!-- <% BidderDao dao=new BidderDaoImpl(); VendorBean vendor=(VendorBean) session.getAttribute("vendordata");
+			List<BidderBean> bidderList = dao.getAllBidsOfaVendor(vendor.getId());
+
+			for (BidderBean bidder : bidderList) {
+			%> -->
+
+
+			<tr>
+				<td>
+					<%=bidder.getBidId()%>
+				</td>
+				<td>
+					<%=bidder.getTenderId()%>
+				</td>
+				<td>&#8377; <%=bidder.getBidAmount()%>
+				</td>
+				<td>
+					<%=bidder.getBidDeadline()%>
+				</td>
+				<td style="font-weight:bold;">
+					<%=bidder.getBidStatus()%>
+				</td>
+			</tr>
+
+
+
+			<!-- <% } %> -->
+	</table>
+	<!-- 			</form>
+ --> <!-- </div>
+     </div> -->
+</div>
+{% endblock %}

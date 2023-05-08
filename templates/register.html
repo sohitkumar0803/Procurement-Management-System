@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+<style>
+	.tab {
+		border-radius: 10px;
+		border: 1px black solid;
+
+		background-color: white;
+		margin-left: 25%;
+		width: 500px;
+		color: #252A34;
+		font-weight: bold;
+		font-style: normal;
+		text-align: center;
+		font-size: 20px;
+		margin-bottom: 10px;
+		padding: 20px;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+<!-- <%-- <jsp:include page="login.jsp"></jsp:include> --%> -->
+
+<div class="col-md-8">
+	<h4
+		style="background-color:#00ADB5; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+		&nbsp; <span id="pagetitle">Vendor Registration</span></h4>
+	<div class="registerFrm">
+		<form action="/register" method="post" class="form">
+			<h3 class="title">Register New Vendor</h3>
+
+			<div class="inputContainer">
+				<input type="text" class="input" placeholder="a" name="vname" required="required">
+				<label for="" class="label">Vendor Name</label>
+			</div>
+
+			<div class="inputContainer">
+				<input type="email" class="input" placeholder="a" name="vemail" required="required">
+				<label for="" class="label">Email</label>
+			</div>
+
+			<div class="inputContainer">
+				<input type="tel" class="input" placeholder="a" name="vmob" required="required">
+				<label for="" class="label">Mobile No.</label>
+			</div>
+
+			<div class="inputContainer">
+				<input type="text" class="input" placeholder="a" name="vaddr" required="required">
+				<label for="" class="label">Address</label>
+			</div>
+
+			<div class="inputContainer">
+				<input type="text" class="input" placeholder="a" name="cname" required="required">
+				<label for="" class="label">Company</label>
+			</div>
+
+			<div class="inputContainer">
+				<input type="text" class="input" placeholder="a" name="vpass" required="required">
+				<label for="" class="label">Password</label>
+			</div>
+
+			<input type="submit" class="submitBtn" value="Register">
+		</form>
+	</div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+<!-- <div class="marquee" style="border:2px #00ADB5 hidden; background-color:white;padding-top:0px;">
+	<h4
+		style="background-color:#00ADB5; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:white;font-weight:bold">
+			 &nbsp; <span id="pagetitle">Vendor Registration</span></h4>pagetitle id is given here 
+	<div class="marquee-content"
+		style="text-align:center; padding-top:15px;min-height:750px;background-color:#F0F0F0">
+
+		<table class="tab hd " style="color:black;margin-bottom:50px;background-color:white; ">
+
+			<tr>
+				<td id="show"></td>
+			</tr>
+		</table>
+
+
+		<table class="tab hd brown">
+			<tr>
+				<td style="color:#252A34">Register New Vendor</td>
+			</tr>
+		</table>
+
+		<table class="tab hd blue" table-border="0px" cell-padding="10" cell-spacing="10">
+
+			<tr>
+				<td>
+					<form action="/register" method="post">
+						<br>
+						Vendor Name: &nbsp;<input type="text" name="vname" required="required"><br /><br />
+						Email Id: &nbsp;<input type="email" name="vemail" required="required"><br /><br />
+						Mobile No.: &nbsp;<input type="tel" name="vmob" required="required"><br /><br />
+						Address: &nbsp;<input type="text" name="vaddr" required="required"><br /><br />
+						Company: &nbsp;<input type="text" name="cname" required="required"><br /><br />
+						Password: &nbsp;<input type="password" name="vpass" required="required"><br /><br />
+						<button type="submit">Register</button>
+
+					</form>
+				</td>
+
+			</tr>
+		</table>
+
+	</div>
+</div> -->

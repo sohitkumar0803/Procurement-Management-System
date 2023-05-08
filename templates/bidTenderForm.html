@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	input,
+	textarea,
+	select {
+		min-width: 450px;
+		font-size: 16px;
+		background-color: #f8f8f8;
+	}
+
+	input:hover,
+	textarea:hover,
+	select:hover {
+		min-width: 450px;
+		background-color: white;
+	}
+
+	table,
+	th,
+	td {
+		margin-bottom: 10px;
+		margin-left: 20%;
+		font-size: 20px;
+		border: 2px solid black;
+		text-align: center;
+		background-color: white;
+		color: #003399;
+	}
+
+	td {
+		padding: 12px;
+		background-color: none;
+	}
+
+	th {
+		padding: 12px;
+		background-color: #00ADB5;
+		color: white;
+		font-weight: bold;
+	}
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+{% include "login.html" %}
+<!-- <%-- <jsp:include page="login.jsp"></jsp:include> --%> -->
+
+<div class="col-md-8">
+	<!-- <div class="marquee" style="border:2px black hidden; background-color:white">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
+        &nbsp; <span id="pagetitle">Tender Creation</span></h4>pagetitle id is given here
+        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:#F0F0F0">
+      -->
+
+	<table style="border-radius:10px">
+		<tr>
+			<td id="show" style="min-width:632px;min-height:0px;color:blue">Enter Bid Amount And Deadline To Bid
+			</td>
+		</tr>
+	</table>
+
+	<!-- <% String vendorId=request.getParameter("vid"); String tenderId=request.getParameter("tid"); TenderDao dao=new
+			TenderDaoImpl(); VendorDao daov=new VendorDaoImpl(); TenderBean tender=dao.getTenderDataById(tenderId);
+			VendorBean vendor=daov.getVendorDataById(vendorId); %> -->
+
+	<form action="BidTenderSrv" method="post">
+		<table style="background-color:white">
+			<th colspan="2">Bid For The Tendor<input type="hidden" name="vid" value="<%= vendorId%>"></th>
+			<tr>
+				<td style="color:red"> Tendor Id : </td>
+				<td><input type="hidden" name="tid" value="<%= tender.getId()%>">
+					<%= tender.getId()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Tendor Name: </td>
+				<td>
+					<%= tender.getName()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Tender Type:</td>
+				<td>
+					<%= tender.getType()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Deadline Reqd:</td>
+				<td>
+					<%= tender.getDeadline()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Base Price :</td>
+				<td>
+					<%= tender.getPrice()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Location :</td>
+				<td>
+					<%= tender.getLocation()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Description: </td>
+				<td><textarea rows="2" cols="40" readonly><%=tender.getDesc() %> </textarea></td>
+			</tr>
+			<tr>
+				<td style="color:red"> Bid Amount : </td>
+				<td> <input type="number" name="bidamount" required="required" min="<%= tender.getPrice()%>"
+						value="<%=tender.getPrice()%>"></td>
+			</tr>
+			<input type="hidden" name="biddeadline" required="required" value="<%= tender.getDeadline()%>">
+			<tr>
+				<td colspan="2" align="center" value="Launch"><input type="submit" value="Bid Now"
+						style="background-color:green;color:white;"></td>
+			</tr>
+
+		</table>
+	</form>
+
+	<!-- </div>
+     </div> -->
+</div>
+
+{% endblock %}

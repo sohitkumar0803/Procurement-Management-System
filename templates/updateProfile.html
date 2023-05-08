@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	input,
+	textarea,
+	select {
+		min-width: 450px;
+		font-size: 16px;
+		background-color: #f8f8f8;
+	}
+
+	input:hover,
+	textarea:hover,
+	select:hover {
+		min-width: 450px;
+		background-color: white;
+	}
+
+	table,
+	th,
+	td {
+		margin-bottom: 10px;
+		margin-left: 20%;
+		font-size: 20px;
+		border: 2px solid black;
+		text-align: center;
+		background-color: white;
+		color: #003399;
+	}
+
+	td {
+		padding: 12px;
+		background-color: none;
+	}
+
+	th {
+		padding: 12px;
+		background-color: #00ADB5;
+		color: white;
+		font-weight: bold;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+<!-- <%-- <jsp:include page="login.jsp"></jsp:include> --%> -->
+
+<div class="col-md-8">
+	<!-- <div class="marquee" style="border:2px black hidden; background-color:white">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
+        &nbsp; <span id="pagetitle">Tender Creation</span></h4>pagetitle id is given here
+        <div  class="marquee-content" style="align:center; padding-top:5px;min-height:750px;background-color:#F0F0F0">
+      -->
+
+	<table style="border-radius:10px">
+		<tr>
+			<td id="show" style="min-width:632px;min-height:0px;color:blue">Edit Details And Click on Update
+			</td>
+		</tr>
+	</table>
+
+	<!-- <% VendorBean vendor=(VendorBean)session.getAttribute("vendordata"); %> -->
+
+	<form action="UpdateProfileSrv" method="post">
+		<table style="background-color:white">
+			<th colspan="2">Update Profile</th>
+			<tr>
+				<td style="color:red"> Vendor Id : </td>
+				<td><input type="hidden" name="vid" value="<%= vendor.getId()%>">
+					<%= vendor.getId()%>
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Vendor Name: </td>
+				<td><input type="text" name="vname" required="required" value="<%= vendor.getName()%>"></td>
+			</tr>
+			<tr>
+				<td style="color:red"> Mobile No. :</td>
+				<td> <input type="number" name="vmob" required="required" value="<%= vendor.getMobile()%>">
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Email Id :</td>
+				<td> <input type="email" name="vemail" required="required" value="<%= vendor.getEmail()%>">
+				</td>
+			</tr>
+			<tr>
+				<td style="color:red"> Address : </td>
+				<td><textarea rows="2" cols="40" style="font-size:15px" name="vaddr"
+						required="required"><%=vendor.getAddress() %> </textarea></td>
+			</tr>
+			<tr>
+				<td style="color:red"> Company Name : </td>
+				<td> <input type="text" name="vcompany" required="required" value="<%= vendor.getCompany()%>"></td>
+			</tr>
+			<tr>
+				<td style="color:red"> Verify Password: </td>
+				<td> <input type="password" name="vpass" required="required"></td>
+			</tr>
+			<tr>
+				<td colspan="2" text-align="center" value="Launch"><input type="submit" value="Update Profile"
+						name="user"></td>
+			</tr>
+
+		</table>
+	</form>
+
+	<!-- </div>
+     </div> -->
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block head %}
+
+<style>
+	th,
+	tr {
+		height: 50px;
+		border: 2px black solid;
+
+	}
+
+	td {
+		min-width: 145px;
+		border: 2px dashed black;
+	}
+
+	table {
+		text-align: center;
+		border-radius: 10px;
+		border: 1px red solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 20px;
+		color: blue;
+		font-style: normal;
+		font-size: 15.5px;
+		padding: 20px;
+	}
+
+	tr:hover {
+		background-color: #DEBEE1;
+		color: black;
+	}
+
+	button:hover {
+		background-color: red;
+		color: white;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+
+	<table style="border-radius:10px">
+		<tr>
+			<td id="show" style="min-width:850px;background-color:white;min-height:0px;color:red">All
+				Assigned Tenders List</td>
+		</tr>
+	</table>
+
+
+	<table style="background-color:white; margin-left:30%;">
+		<tr style="color:white; font-size:18px; font-weight:bold;background-color:#00ADB5">
+			<td>Tender Id</td>
+			<td>Vendor Id </td>
+			<td> Application Id </td>
+			<td>Status</td>
+		</tr>
+
+{% for stat in statuses %}
+
+			<tr>
+				<td><a href="viewTenderBidsForm.jsp?tid=<%=status.getTendorId()%>">
+						{{stat.tid}}
+					</a></td>
+				<td><a href="adminViewVendorDetail.jsp?vid=<%= status.getVendorId() %>">
+						{{stat.vid}}
+					</a></td>
+				<td>
+					{{stat.bid}}
+				</td>
+				<td>
+					{{stat.status}}
+				</td>
+			</tr>
+
+{% endfor %}
+
+			<!-- <% } %> -->
+	</table>
+
+	<!-- </div>
+     </div> -->
+</div>
+
+{% endblock %}

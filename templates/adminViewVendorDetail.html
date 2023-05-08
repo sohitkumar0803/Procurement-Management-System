@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  input,
+  textarea,
+  select {
+    min-width: 450px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    min-width: 450px;
+    background-color: white;
+  }
+
+  table,
+  th,
+  td {
+    margin-bottom: 10px;
+    margin-left: 20%;
+    font-size: 20px;
+    border: 2px solid black;
+    text-align: center;
+    background-color: white;
+    color: #003399;
+  }
+
+  td {
+    padding: 12px;
+    background-color: none;
+  }
+
+  th {
+    padding: 12px;
+    background-color: #00ADB5;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+<div class="col-md-8">
+
+  <table style="border-radius:10px">
+    <tr>
+      <td id="show" style="min-width:632px;min-height:0px;color:blue">Vendor Details For Vendor Id : {{vendor.vid}}
+      </td>
+    </tr>
+  </table>
+
+
+  <table style="background-color:white;margin-left:35%">
+    <th colspan="2">Vendor Contact Details</th>
+    <tr>
+      <td> Vendor Name : </td>
+      <td>
+        {{vendor.vname}}
+      </td>
+    </tr>
+    <tr>
+      <td> Mobile No : </td>
+      <td>
+        {{vendor.vmob}}
+      </td>
+    </tr>
+    <tr>
+      <td>Email Id :</td>
+      <td>
+        {{vendor.vemail}}
+      </td>
+    </tr>
+    <tr>
+      <td> Company Name :</td>
+      <td>
+        {{vendor.company}}
+      </td>
+    </tr>
+    <tr>
+      <td> Address : </td>
+      <td>
+        {{vendor.address}}
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+{% endblock %}

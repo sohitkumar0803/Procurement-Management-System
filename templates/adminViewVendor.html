@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	th,
+	tr {
+		height: 50px;
+		border: 2px black solid;
+
+	}
+
+	td {
+		min-width: 105px;
+		border: 2px dashed black;
+	}
+
+	table {
+		text-align: center;
+		border-radius: 10px;
+		border: 1px black solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 20px;
+		color: blue;
+		font-style: normal;
+		font-size: 15.5px;
+		padding: 20px;
+	}
+
+	tr:hover {
+		background-color: #DEBEE1;
+		color: black;
+	}
+
+	textarea:hover {
+		background-color: #ADBFAF;
+		color: black;
+	}
+
+	.button:hover {
+		background-color: green;
+		color: white;
+		font-size: bold;
+	}
+
+	#show {
+
+		text-align: center;
+		border-radius: 10px;
+		border: 1px black solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 10px;
+		margin-left: 40px;
+		color: black;
+		font-style: normal;
+		font-size: 15.5px;
+		padding: 12px;
+		width: 100%;
+
+
+	}
+
+	button:hover {
+
+		background-color: green;
+		color: white;
+	}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+	<div id="show">
+
+		These are the Vendors Currently Registered With Us
+
+	</div>
+
+
+
+
+
+	<table style="background-color:white;" cellpadding="10" cellspacing="10">
+		<tr style="color:white; font-size:22px; font-weight:bold;background-color:#00ADB5">
+			<td>Vendor Id</td>
+			<td>Vendor Name </td>
+			<td> Mobile </td>
+			<td>Email</td>
+			<td>Company</td>
+			<td>Address</td>
+		</tr>
+
+		{%for vendor in vendors%}
+		<tr>
+			<td><a href="/adminViewVendorDetail/{{vendor.vid}}">
+					{{vendor.vid}}
+				</a> </td>
+			<td>
+				{{vendor.vname}}
+			</td>
+			<td>
+				{{vendor.vmob}}
+			</td>
+			<td>
+				{{vendor.vemail}}
+			</td>
+			<td>
+				{{vendor.company}}
+			</td>
+			<td><textarea readonly>{{vendor.address}} </textarea></td>
+		</tr>
+		{% endfor %}
+
+	</table>
+
+</div>
+{% endblock %}

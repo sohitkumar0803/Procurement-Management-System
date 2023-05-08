@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  input,
+  textarea,
+  select {
+    min-width: 450px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    min-width: 450px;
+    background-color: white;
+  }
+
+  table,
+  th,
+  td {
+    margin-bottom: 10px;
+    margin-left: 20%;
+    font-size: 20px;
+    border: 2px solid green;
+    text-align: center;
+    background-color: white;
+    color: #003399;
+  }
+
+  td {
+    padding: 20px;
+    background-color: none;
+  }
+
+  th {
+    padding: 20px;
+    background-color: #00ADB5;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+<div class="col-md-8">
+
+<table style="border-radius:10px">
+  <tr>
+    <td id="show" style="min-width:632px;min-height:0px;color:blue">Enter Notice Details Below</td>
+  </tr>
+</table>
+
+
+<form action="/updateNoticeForm/{{notice.id}}" method="post">
+  <table style="background-color:white">
+    <th colspan="2">Update Notice No.{{notice.id}}<input type="hidden" name="nid" value="{{notice.id}}">
+    </th>
+    <tr>
+      <td style="color:red"> Notice Title : </td>
+      <td><input type="text" name="title" required="required" value="{{notice.title}}"></td>
+    </tr>
+    <tr>
+      <td style="color:red"> Description : </td>
+      <td> <textarea rows="4" cols="40" style="font-size:15px" name="info"
+          required="required">{{notice.info}}</textarea></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" text-align="center" value="Launch"><input type="submit"
+          style="background-color:#660033;color:white;" value="Update This Notice"></td>
+    </tr>
+
+  </table>
+</form>
+
+<!-- </div>
+     </div> -->
+</div>
+
+{% endblock %}

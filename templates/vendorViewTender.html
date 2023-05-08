@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	/*     th,tr{
+    	height:50px;
+    	border:2px black solid;
+    	
+    }
+   
+    td{
+    	min-width:145px;
+    	border: 2px dashed black;
+    }
+    table{
+    	text-align:center;
+    	border-radius:10px;
+		border:1px red solid;
+		text-align:center;
+		background-color: #F0F0F0;
+		margin:20px;
+		color:blue;
+		font-style:normal;
+		font-size: 15px;
+		padding:20px;
+		cellpadding:10;
+		cellspacing:10;
+		margin-left : 0px;
+    }
+     */
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+	<!-- <div class="marquee" style="border:2px black hidden; background-color:white">
+        <h4 style="background-color:black; margin-top:-1.8px; margin-bottom:1px;padding: 5px; text-align: center;color:red;font-weight:bold">
+        &nbsp; <span id="pagetitle">Admin Account</span></h4>pagetitle id is given here
+        <div class="marquee-content" style="align:center; padding-top:200px;min-height:750px;background-color:#F0F0F0">
+     		 -->
+	<table class="bg-info table table-bordered table-hover bg-white">
+		<tr style="color: white; font-size: 16px; font-weight: bold; background-color: #00ADB5">
+			<td>Tender Name</td>
+			<td>Type</td>
+			<td>Budget</td>
+			<td>Location</td>
+			<td>Deadline</td>
+			<td>Description</td>
+		</tr>
+		{% for tender in tenders %}
+		<tr>
+			<td>
+				{{tender.tname}}
+			</td>
+			<td>
+				{{tender.ttype}}
+			</td>
+			<td>
+				&#8377;{{tender.tprice}}
+			</td>
+			<td>
+				{{tender.tloc}}
+			</td>
+			<td>
+				{{tender.tdeadline}}
+			</td>
+			<td><textarea rows="2" cols="45" disabled>
+				{{tender.tdesc}}
+			</textarea>
+			</td>
+		</tr>
+		{% endfor %}
+
+
+	</table>
+	<!-- </div>
+     </div> -->
+</div>
+
+{% endblock %}

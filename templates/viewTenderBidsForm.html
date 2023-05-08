@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	th,
+	tr {
+		height: 50px;
+		border: 2px black solid;
+	}
+
+	td {
+		min-width: 115px;
+		border: 2px dashed black;
+	}
+
+	table {
+		text-align: center;
+		border-radius: 10px;
+		border: 1px red solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 20px;
+		color: blue;
+		font-style: normal;
+		font-size: 15.5px;
+		padding: 20px;
+	}
+
+	tr:hover {
+		background-color: #DEBEE1;
+		color: black;
+	}
+
+	textarea:hover {
+		background-color: #DEBEE1;
+		color: black;
+	}
+
+	button:hover {
+		background-color: red;
+		color: white;
+		font-size: bold;
+	}
+
+	#bt1:hover {
+		background-color: green;
+		color: white;
+	}
+
+	#show {
+		text-align: center;
+		border-radius: 10px;
+		border: 1px red solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 10px;
+		margin-left: 30px;
+		color: black;
+		font-style: normal;
+		font-size: 15.5px;
+		padding: 12px;
+		width: 100%;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+
+
+	<div id="show">
+		Tender Bids For TendorId: {{tid}}
+	</div>
+
+
+
+	<table style="background-color: white" cellpadding="10" cellspacing="10">
+		<tr style="color: white; font-size: 18px; font-weight: bold; background-color: #00ADB5">
+			<td>Bidder Id</td>
+			<td>Vendor Id</td>
+			<td>Bid Amount</td>
+			<td>Deadline</td>
+			<td>Status</td>
+			<td>Accept</td>
+			<td>Reject</td>
+		</tr>
+
+		{% for bidder in bidders %}
+		<form action="/viewTenderBidsForm/{tid}" method="post">
+		<tr>
+			<td>
+				{{bidder.bid}}
+				<input type="text" name="bid" value={{bidder.bid}} hidden>
+			</td>
+			<td><a href="/adminViewVendorDetail/{{bidder.vid}}">
+					{{bidder.vid}}
+				</a></td>
+			<td>
+				{{bidder.bidamount}}
+			</td>
+			<td>
+				{{bidder.deadline}}
+			</td>
+			<td>
+				{{bidder.status}}
+			</td>
+
+			{% if(bidder.status.lower() == "pending") %}
+			<td><input type="submit" name="btnClicked" value="Accept" class="btn btn-success"></td>
+			<td><input type="submit" name="btnClicked" value="Reject" class="btn btn-danger"></td>
+
+			{% else %}
+
+			<td><button class="btn btn-success" disabled>
+					Accept
+				</button></td>
+			<td><button class="btn btn-danger" disabled>
+					Reject
+				</button></td>
+			{% endif %}
+		</tr>
+		</form>
+		{% endfor %}
+
+	</table>
+</div>
+{% endblock %}

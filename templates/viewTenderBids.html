@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+	th,
+	tr {
+		height: 50px;
+		border: 2px black solid;
+	}
+
+	td {
+		min-width: 120px;
+		border: 2px dashed black;
+	}
+
+	table {
+		text-align: center;
+		border-radius: 10px;
+		border: 1px red solid;
+		text-align: center;
+		background-color: #F0F0F0;
+		margin: 20px;
+		color: blue;
+		font-style: normal;
+		font-size: 14px;
+		padding: 15px;
+	}
+
+	tr:hover {
+		background-color: #DEBEE1;
+		color: black;
+	}
+
+	button:hover {
+		background-color: red;
+		color: white;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Next part of same container-fluid in which gallery or other information will be shown-->
+
+
+<div class="col-md-8">
+
+	<table style="background-color: white" cellpadding="10" cellspacing="10">
+		<tr style="color: white; font-size: 22px; font-weight: bold; background-color: #00ADB5">
+			<td>Tender Id</td>
+			<td>Tender Name</td>
+			<td>Tender Type</td>
+			<td>Tender Price</td>
+			<td>Location</td>
+			<td>Deadline</td>
+			<td>Description</td>
+			<td>Status</td>
+			<td>View Bids</td>
+		</tr>
+		<!-- <% TenderDao dao=new TenderDaoImpl(); List<TenderBean> tenderList = dao.getAllTenders();
+			for (TenderBean tender : tenderList) {
+			String tid = tender.getId();
+			String tname = tender.getName();
+			String ttype = tender.getType();
+			int tprice = tender.getPrice();
+			String tloc = tender.getLocation();
+			java.util.Date udeadline = tender.getDeadline();
+			java.sql.Date tdeadline = new java.sql.Date(udeadline.getTime());
+			String tdesc = tender.getDesc();
+			%> -->
+		{% for tender in tenders %}
+
+		<tr>
+			<td><a href="/viewTenderBidsForm/{{tender.tid}}">
+					{{tender.tid}}
+				</a></td>
+			<td>
+				{{tender.tname}}
+			</td>
+			<td>
+				{{tender.ttype}}
+			</td>
+			<td>
+				{{tender.tprice}}
+			</td>
+			<td>
+				{{tender.tloc}}
+			</td>
+			<td>
+				{{tender.tdeadline}}
+			</td>
+			<td><textarea rows="2" cols="40" readonly>{{tender.tdesc}}</textarea></td>
+			{% set cnt = namespace(value=0) %}
+			{% for stat in statuses %}
+			{% if(tender.tid == stat.tid) %}
+			<td style="font-weight:bold;">
+				{{stat.status}}
+			</td>
+			{% set cnt.value = 1 %}
+			{% endif %}
+			{% endfor %}
+
+			{% if(cnt.value == 0)%}
+			<td style="font-weight:bold;">
+				Not Assigned
+			</td>
+			{% endif %}
+
+			<td><a href="/viewTenderBidsForm/{{tender.tid}}"><button class="btn btn-success">View Bids</button></a>
+			</td>
+		</tr>
+
+		{% endfor %}
+
+		<!-- <% } %> -->
+	</table>
+
+	<!-- </div>
+     </div> -->
+</div>
+
+</div>
+{% endblock %}

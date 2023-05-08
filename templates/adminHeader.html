@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse"> <!-- Navigation Bar-->
+  <div class="container">
+    <div class="navbar-header my-1"> <!-- Header navigation-->
+      <a href="/" class="pull-left">
+        <img style="filter: invert(100%)" src="{{url_for('static',filename='assets/images/procurement.png')}}"
+          alt="E-Proc" width="70px" height="70px" />
+      </a>
+      <a class="navbar-brand" style="margin-top: 15px;" href="/">
+        <h1>Procurement Management System</h1>
+      </a> <!-- Library Name fixed-->
+
+    </div>
+
+    <ul class="nav navbar-nav navbar-right menusize pull-right"> <!-- Login or signup in right top corner-->
+      <li><a href="/logoutSuccess"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+
+    <!--Coding for Small Devices navigation-->
+    <div class="navbar-header pull-left hidden-lg hidden-md">
+      <button id="navbarToggle" type="button" class="btn btn-primary navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#collapsable-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span> <!-- Only used by screen readers-->
+        <span class="icon-bar"></span> <!-- Tripple dotted button-->
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div> <!-- End of small device navigation-->
+
+  </div>
+</nav>
+<!-- Starting of another line of navigation for menu options-->
